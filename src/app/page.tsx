@@ -95,8 +95,8 @@ export default function Home() {
     },
     {
       icon: Target,
-      title: "Rebar Detailing",
-      description: "We provide precise rebar detailing services focused on accuracy, cost-efficiency, and constructability to meet your project specifications."
+      title: "facade Detailing",
+      description: "We provide precise facade detailing services focused on accuracy, cost-efficiency, and constructability to meet your project specifications."
     }
   ]
 
@@ -569,7 +569,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Service 5 - Rebar Detailing */}
+            {/* Service 5 - facade Detailing */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -581,7 +581,7 @@ export default function Home() {
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src="https://images.unsplash.com/photo-1582540730843-f4418d96ccbe" 
-                    alt="Rebar Detailing" 
+                    alt="facade Detailing" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -589,13 +589,13 @@ export default function Home() {
                     <Zap className="w-8 h-8 text-[#1F3B64]" />
                   </div>
                   <div className="absolute bottom-6 left-6 right-6">
-                    <h3 className="text-2xl font-bold text-white mb-1">Rebar Detailing</h3>
+                    <h3 className="text-2xl font-bold text-white mb-1">facade Detailing</h3>
                     <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-transparent rounded-full"></div>
                   </div>
                 </div>
                 <div className="p-8">
                   <p className="text-gray-600 leading-relaxed mb-6">
-                    We provide precise rebar detailing services focused on accuracy, cost-efficiency, and constructability to meet your project specifications.
+                    We provide precise facade detailing services focused on accuracy, cost-efficiency, and constructability to meet your project specifications.
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center text-[#1F3B64] font-semibold group-hover:gap-3 gap-2 transition-all duration-300">
