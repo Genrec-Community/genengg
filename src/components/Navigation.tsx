@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Menu, X, Phone } from "lucide-react"
+import { Menu, X, Phone, Linkedin } from "lucide-react"
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -13,7 +13,7 @@ export default function Navigation() {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md border-b border-white/20">
         <div className="w-full px-4 lg:px-12">
-          <div className="flex justify-between items-center h-24">
+          <div className="flex justify-between items-center h-20">
             {/* Left Side: Logo and Licenses as One Unit */}
             <div className="flex items-center gap-4">
               {/* Company Logo */}
@@ -21,24 +21,19 @@ export default function Navigation() {
                 <Image 
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/logo-removebg-preview-1-1759896961543.png"
                   alt="GenEngg Logo"
-                  width={120}
-                  height={60}
-                  className="h-16 w-auto"
+                  width={140}
+                  height={70}
+                  className="h-14 w-auto"
                   priority
                 />
               </Link>
               
-              {/* GenEngg Text */}
-              <h1 className="hidden md:block text-4xl font-bold text-[#003366]">
-                GenEngg
-              </h1>
-              
-              {/* License Badges and Text */}
+              {/* License Badges */}
               <div className="hidden md:flex flex-col gap-1 items-center">
                 {/* License Logos Row */}
                 <div className="flex items-center gap-3">
                   {/* AISC License */}
-                  <div className="relative h-14 w-20">
+                  <div className="relative h-12 w-18">
                     <Image 
                       src="/aisc-license.png"
                       alt="AISC Certified"
@@ -48,7 +43,7 @@ export default function Navigation() {
                   </div>
                   
                   {/* NISD License */}
-                  <div className="relative h-14 w-20">
+                  <div className="relative h-12 w-18">
                     <Image 
                       src="/nisd-licence.png"
                       alt="NISD Member"
@@ -57,26 +52,27 @@ export default function Navigation() {
                     />
                   </div>
                 </div>
-                
-                {/* Membership Text */}
-                <p className="text-xs font-bold text-[#333333] whitespace-nowrap text-center">
-                  Member of AISC and NISD
-                </p>
               </div>
             </div>
             
             {/* Right Side: Toll Free, Send Query Button, Menu Icon */}
             <div className="flex items-center gap-4">
-              {/* Phone Number */}
-              <div className="hidden md:flex items-center gap-2 text-[#1F3B64]">
-                <Phone className="w-5 h-5" />
-                <span className="font-semibold">+1 302-499-2050</span>
+              {/* Phone Number and LinkedIn */}
+              <div className="hidden md:flex flex-col items-end gap-1 text-[#1F3B64]">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5" />
+                  <span className="font-semibold">+1 302-499-2050</span>
+                </div>
+                <a href="https://www.linkedin.com/company/gen-engineering-inc/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#1F3B64] hover:text-blue-700 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                  <span className="text-sm">LinkedIn</span>
+                </a>
               </div>
               
               {/* Send Query Button */}
               <Button 
                 asChild
-                className="hidden md:flex bg-[#003366] hover:bg-[#003366]/90 text-white px-6 py-2 rounded-lg transition-all hover:shadow-lg"
+                className="hidden md:flex bg-[#003366] hover:bg-[#003366]/90 text-white px-5 py-2 rounded-lg transition-all hover:shadow-lg"
               >
                 <Link href="/contact">
                   Send Query
@@ -85,7 +81,7 @@ export default function Navigation() {
               
               {/* Menu Button */}
               <button
-                className="text-[#1F3B64] p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="text-[#1F3B64] p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"
               >
@@ -165,12 +161,21 @@ export default function Navigation() {
 
             {/* Footer with Contact Info */}
             <div className="p-6 border-t border-gray-200 space-y-4">
-              <div className="flex items-center space-x-3 text-[#1F3B64] bg-gray-50 p-4 rounded-lg">
-                <Phone className="w-5 h-5" />
-                <div>
-                  <div className="text-xs text-gray-500">Phone</div>
-                  <div className="font-semibold">+1 302-499-2050</div>
+              <div className="flex flex-col space-y-3 text-[#1F3B64] bg-gray-50 p-4 rounded-lg">
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-5 h-5" />
+                  <div>
+                    <div className="text-xs text-gray-500">Phone</div>
+                    <div className="font-semibold">+1 302-499-2050</div>
+                  </div>
                 </div>
+                <a href="https://www.linkedin.com/company/gen-engineering-inc/" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 hover:text-blue-700 transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                  <div>
+                    <div className="text-xs text-gray-500">Connect</div>
+                    <div className="font-semibold">LinkedIn</div>
+                  </div>
+                </a>
               </div>
               
               <Button 

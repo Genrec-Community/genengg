@@ -13,9 +13,9 @@ export default function ProjectsPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const heroImages = [
-    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920",
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920",
-    "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=1920"
+    "/1.png",
+    "/5.png",
+    "/9.png"
   ]
 
   useEffect(() => {
@@ -28,76 +28,49 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      title: "Downtown Commercial Tower",
-      location: "New York, NY",
-      year: "2023",
-      category: "Commercial",
-      description: "40-story mixed-use tower featuring advanced seismic design and sustainable engineering solutions.",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
-      services: ["Structural Design", "BIM Modeling", "Construction Supervision"]
-    },
-    {
-      title: "Riverside Residential Complex",
+      title: "Skyline Tech Hub",
       location: "San Francisco, CA",
-      year: "2022",
-      category: "Residential",
-      description: "Luxury residential complex with earthquake-resistant design and modern architectural features.",
-      image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
-      services: ["Earthquake-Resistant Design", "Structural Design"]
-    },
-    {
-      title: "Historic Building Retrofit",
-      location: "Boston, MA",
-      year: "2023",
-      category: "Retrofitting",
-      description: "Comprehensive seismic retrofitting of a century-old landmark building while preserving its architectural integrity.",
-      image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=800",
-      services: ["Retrofitting", "Structural Assessment"]
-    },
-    {
-      title: "Industrial Manufacturing Facility",
-      location: "Chicago, IL",
-      year: "2022",
-      category: "Industrial",
-      description: "State-of-the-art manufacturing facility with heavy load-bearing structures and advanced material handling systems.",
-      image: "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800",
-      services: ["Structural Design", "Construction Supervision"]
-    },
-    {
-      title: "University Science Building",
-      location: "Austin, TX",
-      year: "2023",
-      category: "Educational",
-      description: "Modern research facility with specialized laboratory spaces and sustainable design features.",
-      image: "https://images.unsplash.com/photo-1562774053-701939374585?w=800",
-      services: ["Structural Design", "BIM Modeling"]
-    },
-    {
-      title: "Healthcare Center Expansion",
-      location: "Seattle, WA",
-      year: "2022",
-      category: "Healthcare",
-      description: "Critical care facility expansion with stringent safety standards and seismic resilience.",
-      image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800",
-      services: ["Structural Design", "Earthquake-Resistant Design"]
-    },
-    {
-      title: "Transit Hub Renovation",
-      location: "Los Angeles, CA",
-      year: "2023",
-      category: "Infrastructure",
-      description: "Major transportation hub modernization with enhanced structural capacity and safety features.",
-      image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800",
-      services: ["Retrofitting", "Structural Design", "BIM Modeling"]
-    },
-    {
-      title: "Waterfront Office Complex",
-      location: "Miami, FL",
-      year: "2022",
+      year: "2024",
       category: "Commercial",
-      description: "Premium office development with advanced wind-resistant design and sustainable features.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
-      services: ["Structural Design", "Construction Supervision"]
+      description: "A 60-story sustainable skyscraper featuring a unique twisting facade and seismic dampening systems designed for high-intensity zones.",
+      image: "/1.png",
+      services: ["Structural Engineering", "Performance-Based Design", "BIM Coordination"]
+    },
+    {
+      title: "Harbor View Residences",
+      location: "Vancouver, BC",
+      year: "2023",
+      category: "Residential",
+      description: "Luxury waterfront residential complex comprising three towers connected by a podium, utilizing advanced foundation systems for soft soil conditions.",
+      image: "/3.png",
+      services: ["Foundation Design", "Structural Analysis", "Construction Support"]
+    },
+    {
+      title: "Apex Manufacturing Plant",
+      location: "Detroit, MI",
+      year: "2023",
+      category: "Industrial",
+      description: "Large-scale automated manufacturing facility requiring long-span roof trusses and vibration control for sensitive machinery.",
+      image: "/5.png",
+      services: ["Industrial Design", "Steel Structures", "Vibration Analysis"]
+    },
+    {
+      title: "Civic Arts Center",
+      location: "Austin, TX",
+      year: "2022",
+      category: "Cultural",
+      description: "An architectural landmark featuring complex geometric steel connections and exposed concrete structures.",
+      image: "/7.png",
+      services: ["Structural Artistry", "Concrete Design", "Geometric Analysis"]
+    },
+    {
+      title: "Metropolitan Transit Hub",
+      location: "Chicago, IL",
+      year: "2024",
+      category: "Infrastructure",
+      description: "Multi-modal transit station integrating underground rail tunnels with surface-level bus terminals and commercial spaces.",
+      image: "/9.png",
+      services: ["Infrastructure Engineering", "Underground Structures", "Load Testing"]
     }
   ]
 

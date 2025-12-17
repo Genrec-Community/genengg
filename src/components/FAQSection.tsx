@@ -40,36 +40,6 @@ const faqData: FAQItem[] = [
     question: "How long does structural steel detailing typically take?",
     answer: "The timeline for structural steel detailing depends on project size and complexity. Small projects may take 2-4 weeks, while large commercial or industrial projects can take 8-16 weeks or more. Gen Engineering works with clients to establish realistic schedules and provides dedicated project management to ensure timely delivery. Contact us with your project details for a specific timeline estimate.",
     category: "Project Timeline"
-  },
-  {
-    question: "What deliverables are included in steel detailing services?",
-    answer: "Gen Engineering's structural steel detailing services include comprehensive Bill of Materials (BOM), shop drawings, erection drawings, connection details, anchor bolt plans, part and assembly drawings, material lists, and fabrication documentation. All deliverables are prepared in accordance with project specifications and applicable codes.",
-    category: "Services"
-  },
-  {
-    question: "Does Gen Engineering provide connection design services?",
-    answer: "Yes, Gen Engineering provides structural steel connection design services in accordance with American (AISC), British (BS), and Canadian standards. Our services include connection design calculations, markup plans, connection sketches, and design tables. All connection designs ensure structural integrity and code compliance.",
-    category: "Services"
-  },
-  {
-    question: "What is the difference between shop drawings and erection drawings?",
-    answer: "Shop drawings provide detailed fabrication information for individual steel components including dimensions, materials, and connection details. Erection drawings show how these components fit together during construction, including piece marks, erection sequences, and field connection details. Gen Engineering provides both types of drawings as part of our comprehensive steel detailing services.",
-    category: "Services"
-  },
-  {
-    question: "How does Gen Engineering ensure quality in deliverables?",
-    answer: "Gen Engineering maintains ISO 9001:2015-aligned quality processes with multiple quality checkpoints throughout the project lifecycle. Our quality assurance includes design review, clash detection, peer review of drawings, compliance verification with applicable codes, and final QA/QC before delivery. We also maintain AISC certification standards and provide dedicated project management for every project.",
-    category: "Quality & Standards"
-  },
-  {
-    question: "Can Gen Engineering work with international project teams?",
-    answer: "Yes, Gen Engineering has extensive experience working with international clients across the United States, Canada, Australia, and India. We provide services compliant with multiple international standards and codes. Our team is experienced in coordinating across different time zones and working with diverse project stakeholders.",
-    category: "International Services"
-  },
-  {
-    question: "What software does Gen Engineering use for detailing?",
-    answer: "Gen Engineering uses industry-leading software including Tekla Structures for 3D steel detailing, AutoCAD for 2D drawings, Revit for BIM coordination, Navisworks for clash detection, and various analysis software for connection design. We stay current with the latest technology to provide efficient, accurate deliverables.",
-    category: "Technology"
   }
 ]
 

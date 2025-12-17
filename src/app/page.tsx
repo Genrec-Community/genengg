@@ -6,11 +6,13 @@ import FAQSection from "@/components/FAQSection"
 import { Button } from "@/components/ui/button"
 import { Building2, Shield, Zap, Layers, ClipboardCheck, CheckCircle2, ArrowRight, Award, Users, Target, Lightbulb, Hammer, BarChart3 } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence, useInView } from "framer-motion"
+import { motion, AnimatePresence, useInView, useScroll, useTransform } from "framer-motion"
+import Image from "next/image"
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [scrollY, setScrollY] = useState(0)
+  const { scrollY } = useScroll()
+  const y = useTransform(scrollY, [0, 1000], [0, 500])
   const statsRef = useRef(null)
   const isInView = useInView(statsRef, { once: true })
   const [stats, setStats] = useState({
@@ -34,13 +36,7 @@ export default function Home() {
     return () => clearInterval(interval)
   }, [backgroundImages.length])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+
 
   // Animated counter effect
   useEffect(() => {
@@ -48,14 +44,14 @@ export default function Home() {
       const duration = 2000
       const steps = 60
       const interval = duration / steps
-      
+
       const targets = { projects: 2000, clients: 25, experience: 10 }
       let step = 0
 
       const timer = setInterval(() => {
         step++
         const progress = step / steps
-        
+
         setStats({
           projects: Math.floor(targets.projects * progress),
           clients: Math.floor(targets.clients * progress),
@@ -103,17 +99,13 @@ export default function Home() {
   return (
     <main className="w-full">
       <Navigation />
-      
+
       {/* Hero Section with Parallax */}
-      <section className="relative min-h-screen flex items-end justify-center text-white overflow-hidden">
+      <section className="relative min-h-[calc(100vh+150px)] flex items-end justify-end text-white overflow-hidden">
         {/* Animated Background Images - Side by Side Sliding Carousel with Parallax */}
-        <div 
+        <motion.div
           className="absolute inset-0 w-full h-full"
-          style={{
-            transform: `translate3d(0, ${scrollY * 0.5}px, 0)`,
-            willChange: 'transform',
-            transition: 'transform 0.1s ease-out'
-          }}
+          style={{ y }}
         >
           <AnimatePresence initial={false}>
             <motion.div
@@ -130,11 +122,11 @@ export default function Home() {
               }}
             />
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* Foreground Content */}
-        <div className="relative w-full min-h-screen flex items-end justify-center pt-0 pb-0 z-10">
-          <div className="w-full bg-white py-3 sm:py-4 md:py-6 px-3 sm:px-6 lg:px-12 shadow-2xl">
+        <div className="relative w-full flex items-end justify-center pt-0 pb-0 z-10">
+          <div className="w-full bg-white py-6 sm:py-8 md:py-10 px-3 sm:px-6 lg:px-12 shadow-2xl">
             <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center text-[#002060] uppercase tracking-tight sm:tracking-wide md:tracking-wider leading-tight">
               Exceptional Engineering
               <br className="hidden sm:block" />
@@ -148,7 +140,7 @@ export default function Home() {
       <section id="about" className="relative bg-white overflow-hidden">
         <div className="w-full">
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -175,10 +167,12 @@ export default function Home() {
               className="relative min-h-[300px] sm:min-h-[400px] md:min-h-[500px] lg:min-h-[600px]"
             >
               <div className="absolute inset-0">
-                <img 
-                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920" 
-                  alt="Modern engineering project" 
-                  className="w-full h-full object-cover"
+                <Image
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920"
+                  alt="Modern engineering project"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               </div>
@@ -212,7 +206,7 @@ export default function Home() {
               <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-6 sm:mb-8">
                 Our expertise spans structural and miscellaneous steel detailing, connection design, estimation, and BIM services across diverse sectors including industrial, commercial, mining, and infrastructure projects worldwide.
               </p>
-              
+
               {/* Feature List */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                 <div className="flex items-start space-x-2 sm:space-x-3">
@@ -239,8 +233,8 @@ export default function Home() {
 
               </div>
 
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="mt-6 sm:mt-8 bg-[#1F3B64] hover:bg-[#003366] text-white font-semibold rounded-full px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                 onClick={() => window.location.href = '/about'}
               >
@@ -251,7 +245,7 @@ export default function Home() {
           </div>
 
           {/* Stats Counter Section - Full Width */}
-          <motion.div 
+          <motion.div
             ref={statsRef}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -285,7 +279,7 @@ export default function Home() {
               <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                 Core Values That Define Our Excellence
               </h3>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -294,7 +288,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Precision in Design & Detailing</h4>
                     <p className="text-gray-600">
-                      Every calculation and component reflects accuracy and discipline, ensuring structural 
+                      Every calculation and component reflects accuracy and discipline, ensuring structural
                       integrity and fabrication excellence.
                     </p>
                   </div>
@@ -307,7 +301,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Innovation in Practice</h4>
                     <p className="text-gray-600">
-                      Embracing the latest tools and digital workflows to redefine engineering standards and 
+                      Embracing the latest tools and digital workflows to redefine engineering standards and
                       deliver cutting-edge solutions.
                     </p>
                   </div>
@@ -320,7 +314,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Client-Centric Approach</h4>
                     <p className="text-gray-600">
-                      We focus on becoming the most valuable asset to our clients—not just another service provider, 
+                      We focus on becoming the most valuable asset to our clients—not just another service provider,
                       but a trusted partner in success.
                     </p>
                   </div>
@@ -333,7 +327,7 @@ export default function Home() {
                   <div>
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Safety & Compliance</h4>
                     <p className="text-gray-600">
-                      Ensuring complete adherence to international codes and safety standards in every project 
+                      Ensuring complete adherence to international codes and safety standards in every project
                       we undertake.
                     </p>
                   </div>
@@ -350,25 +344,31 @@ export default function Home() {
             >
               <div className="h-full grid grid-rows-2 gap-0">
                 <div className="relative overflow-hidden">
-                  <img 
-                    src="https://plus.unsplash.com/premium_photo-1663126874108-409fb65c879c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzYxODIxMzc4fA&ixlib=rb-4.1.0&q=80&w=1080" 
-                    alt="Engineering team collaboration" 
-                    className="w-full h-full object-cover"
+                  <Image
+                    src="https://plus.unsplash.com/premium_photo-1663126874108-409fb65c879c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzYxODIxMzc4fA&ixlib=rb-4.1.0&q=80&w=1080"
+                    alt="Engineering team collaboration"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-0">
                   <div className="relative overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1758599543129-5269a8f29e68?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080" 
-                      alt="Structural analysis" 
-                      className="w-full h-full object-cover"
+                    <Image
+                      src="https://images.unsplash.com/photo-1758599543129-5269a8f29e68?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080"
+                      alt="Structural analysis"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
                   <div className="relative overflow-hidden">
-                    <img 
-                      src="https://plus.unsplash.com/premium_photo-1723759366079-f92eb0aee298?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzYxODIxMjE1fA&ixlib=rb-4.1.0&q=80&w=1080" 
-                      alt="Construction site" 
-                      className="w-full h-full object-cover"
+                    <Image
+                      src="https://plus.unsplash.com/premium_photo-1723759366079-f92eb0aee298?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzYxODIxMjE1fA&ixlib=rb-4.1.0&q=80&w=1080"
+                      alt="Construction site"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
                 </div>
@@ -388,7 +388,7 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
           {/* Section Header */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -424,10 +424,12 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" 
-                    alt="Estimation & Take Off" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  <Image
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
+                    alt="Estimation & Take Off"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   {/* Icon Badge */}
@@ -465,10 +467,12 @@ export default function Home() {
             >
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1648937740668-160a34e98653" 
-                    alt="Steel Detailing" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  <Image
+                    src="https://images.unsplash.com/photo-1648937740668-160a34e98653"
+                    alt="Steel Detailing"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute top-6 right-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -503,10 +507,12 @@ export default function Home() {
             >
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1678517098615-95d02f7c49ff" 
-                    alt="Connection Design" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  <Image
+                    src="https://images.unsplash.com/photo-1678517098615-95d02f7c49ff"
+                    alt="Connection Design"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute top-6 right-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -541,10 +547,12 @@ export default function Home() {
             >
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1618385455730-2571c38966b7" 
-                    alt="BIM Modeling" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  <Image
+                    src="https://images.unsplash.com/photo-1618385455730-2571c38966b7"
+                    alt="BIM Modeling"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute top-6 right-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -579,10 +587,12 @@ export default function Home() {
             >
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1582540730843-f4418d96ccbe" 
-                    alt="Facade Detailing" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  <Image
+                    src="https://images.unsplash.com/photo-1582540730843-f4418d96ccbe"
+                    alt="Facade Detailing"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute top-6 right-6 w-16 h-16 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
@@ -625,7 +635,7 @@ export default function Home() {
                     Full-Service Engineering Partnership
                   </h3>
                   <p className="text-lg text-gray-100 mb-8 leading-relaxed">
-                    From initial consultation to final delivery, we provide comprehensive engineering support 
+                    From initial consultation to final delivery, we provide comprehensive engineering support
                     tailored to your project's unique requirements.
                   </p>
                   <ul className="space-y-4 mb-8">
@@ -642,8 +652,8 @@ export default function Home() {
                       <span>Quality assurance at every stage</span>
                     </li>
                   </ul>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-white text-[#1F3B64] hover:bg-gray-100 font-semibold rounded-full px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-fit"
                     onClick={() => window.location.href = '/contact'}
                   >
@@ -667,22 +677,32 @@ export default function Home() {
               {/* Image Collage */}
               <div className="relative h-[500px] lg:h-auto">
                 <div className="absolute inset-0 grid grid-cols-2 gap-2 p-2">
-                  <img 
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80" 
-                    alt="Engineering technology" 
-                    className="w-full h-full object-cover rounded-2xl"
+                  <Image
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80"
+                    alt="Engineering technology"
+                    fill
+                    className="object-cover rounded-2xl"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="space-y-2">
-                    <img 
-                      src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400&q=80" 
-                      alt="Construction tech" 
-                      className="w-full h-[calc(50%-4px)] object-cover rounded-2xl"
-                    />
-                    <img 
-                      src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80" 
-                      alt="Modern structure" 
-                      className="w-full h-[calc(50%-4px)] object-cover rounded-2xl"
-                    />
+                    <div className="relative w-full h-[calc(50%-4px)]">
+                      <Image
+                        src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400&q=80"
+                        alt="Construction tech"
+                        fill
+                        className="object-cover rounded-2xl"
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
+                    <div className="relative w-full h-[calc(50%-4px)]">
+                      <Image
+                        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80"
+                        alt="Modern structure"
+                        fill
+                        className="object-cover rounded-2xl"
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -697,7 +717,7 @@ export default function Home() {
                   Powered by Cutting-Edge Engineering Technology
                 </h3>
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  We leverage industry-leading software and tools to deliver precise, efficient, 
+                  We leverage industry-leading software and tools to deliver precise, efficient,
                   and innovative engineering solutions.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
@@ -762,23 +782,23 @@ export default function Home() {
                     Next Project?
                   </span>
                 </h2>
-                
+
                 <p className="text-base sm:text-lg md:text-xl text-gray-200 mb-8 sm:mb-10 leading-relaxed">
-                  Let's discuss how our expertise can bring your vision to life. 
+                  Let's discuss how our expertise can bring your vision to life.
                   Get in touch with our team today for a consultation.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-white text-[#1F3B64] hover:bg-gray-100 font-semibold rounded-full px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                     onClick={() => window.location.href = '/contact'}
                   >
                     Contact Us
                     <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                   </Button>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="outline"
                     className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#1F3B64] font-semibold rounded-full px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg transition-all duration-300 hover:scale-105 w-full sm:w-auto"
                     onClick={() => window.location.href = '/projects'}
@@ -789,10 +809,12 @@ export default function Home() {
               </div>
 
               <div className="relative h-64 sm:h-80 lg:h-auto">
-                <img 
-                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" 
-                  alt="Construction project" 
-                  className="w-full h-full object-cover"
+                <Image
+                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
+                  alt="Construction project"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1F3B64]/50 to-transparent"></div>
               </div>
