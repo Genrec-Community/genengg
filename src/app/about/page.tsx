@@ -5,9 +5,9 @@ import Navigation from "@/components/Navigation"
 import Footer from "@/components/Footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { 
-  Building2, Shield, Users, Award, Target, TrendingUp, 
-  CheckCircle2, ArrowRight, Lightbulb, Heart, Globe, 
+import {
+  Building2, Shield, Users, Award, Target, TrendingUp,
+  CheckCircle2, ArrowRight, Lightbulb, Heart, Globe,
   Hammer, HardHat, Ruler, Calculator, Briefcase, GraduationCap,
   Trophy, Star, Zap, Clock, ThumbsUp, Sparkles
 } from "lucide-react"
@@ -79,14 +79,14 @@ export default function AboutPage() {
       const duration = 2000
       const steps = 60
       const interval = duration / steps
-      
+
       const targets = { projects: 2000, clients: 25, experience: 10 }
       let step = 0
 
       const timer = setInterval(() => {
         step++
         const progress = step / steps
-        
+
         setStats({
           projects: Math.floor(targets.projects * progress),
           clients: Math.floor(targets.clients * progress),
@@ -122,7 +122,7 @@ export default function AboutPage() {
   return (
     <main className="w-full">
       <Navigation />
-      
+
       {/* Hero Section - Minimal and Elegant with Blue Background */}
       <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#f0f4ff] via-[#e6f0ff] to-[#dce8ff] pt-20">
         {/* Subtle Background Pattern */}
@@ -150,8 +150,8 @@ export default function AboutPage() {
               About GenEngg
             </p>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-light text-[#1F3B64] mb-4 sm:mb-6 md:mb-8 leading-tight tracking-tight px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,7 +159,7 @@ export default function AboutPage() {
           >
             We excel in<br className="hidden sm:block" />
             <span className="sm:hidden"> </span>
-            <motion.span 
+            <motion.span
               className="font-bold"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -168,8 +168,8 @@ export default function AboutPage() {
               engineering excellence
             </motion.span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             className="text-base sm:text-lg md:text-xl text-gray-600 font-light max-w-2xl mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -220,7 +220,7 @@ export default function AboutPage() {
               <Target className="w-4 h-4" />
               OUR GUIDING PRINCIPLES
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Mission, Vision
               <span className="block text-[#1F3B64]">& Core Values</span>
@@ -301,7 +301,7 @@ export default function AboutPage() {
             <p className="text-xs sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] text-gray-400 font-light uppercase mb-3 sm:mb-4">
               Our Core Values
             </p>
-            
+
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light text-[#1F3B64] mb-4 sm:mb-6 leading-tight px-4">
               Principles That
               <span className="block font-bold">Drive Our Success</span>
@@ -347,11 +347,10 @@ export default function AboutPage() {
                     <button
                       key={index}
                       onClick={() => setCurrentValueIndex(index)}
-                      className={`relative h-1 transition-all duration-500 rounded-full ${
-                        index === currentValueIndex 
-                          ? 'w-16 bg-[#1F3B64]' 
-                          : 'w-8 bg-gray-300 hover:bg-gray-400'
-                      }`}
+                      className={`relative h-1 transition-all duration-500 rounded-full ${index === currentValueIndex
+                        ? 'w-16 bg-[#1F3B64]'
+                        : 'w-8 bg-gray-300 hover:bg-gray-400'
+                        }`}
                       aria-label={`Go to value ${index + 1}`}
                     />
                   ))}
@@ -363,15 +362,13 @@ export default function AboutPage() {
                     <button
                       key={index}
                       onClick={() => setCurrentValueIndex(index)}
-                      className={`text-left p-2 sm:p-3 rounded-lg transition-all duration-300 ${
-                        index === currentValueIndex
-                          ? 'bg-blue-50 border border-[#1F3B64]'
-                          : 'bg-gray-50 hover:bg-gray-100'
-                      }`}
+                      className={`text-left p-2 sm:p-3 rounded-lg transition-all duration-300 ${index === currentValueIndex
+                        ? 'bg-blue-50 border border-[#1F3B64]'
+                        : 'bg-gray-50 hover:bg-gray-100'
+                        }`}
                     >
-                      <div className={`text-[10px] sm:text-xs font-semibold mb-1 ${
-                        index === currentValueIndex ? 'text-[#1F3B64]' : 'text-gray-500'
-                      }`}>
+                      <div className={`text-[10px] sm:text-xs font-semibold mb-1 ${index === currentValueIndex ? 'text-[#1F3B64]' : 'text-gray-500'
+                        }`}>
                         {value.title}
                       </div>
                     </button>
@@ -389,13 +386,13 @@ export default function AboutPage() {
                 className="relative"
               >
                 <div className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-                  <img 
+                  <img
                     src={values[currentValueIndex].image}
                     alt={values[currentValueIndex].title}
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#1F3B64]/30 via-transparent to-transparent"></div>
-                  
+
                   {/* Floating Counter Badge */}
                   <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 md:bottom-6 md:right-6 bg-white/90 backdrop-blur-sm rounded-xl sm:rounded-2xl px-3 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4 shadow-xl">
                     <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F3B64]">
@@ -426,7 +423,7 @@ export default function AboutPage() {
               <Clock className="w-4 h-4" />
               OUR JOURNEY
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               Milestones That
               <span className="block text-[#1F3B64]">Define Our Legacy</span>
@@ -445,9 +442,8 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className={`flex flex-col lg:flex-row items-center gap-8 ${
-                    index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}
+                  className={`flex flex-col lg:flex-row items-center gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                    }`}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
                     <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow duration-300 border-l-4 border-[#1F3B64]">
@@ -492,16 +488,16 @@ export default function AboutPage() {
               <Award className="w-4 h-4" />
               CERTIFICATIONS & ACCREDITATIONS
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Industry-Leading
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
                 Certifications & Standards
               </span>
             </h2>
-            
+
             <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Our commitment to excellence is validated by industry-leading certifications and 
+              Our commitment to excellence is validated by industry-leading certifications and
               adherence to the highest professional standards.
             </p>
           </motion.div>
@@ -524,6 +520,64 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Software We Use Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="mt-16"
+          >
+            <h4 className="text-2xl font-bold text-white mb-8 text-center">Software Platforms We Use</h4>
+            <div className="flex flex-wrap justify-center items-center gap-6">
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="relative h-20 w-36 flex items-center justify-center">
+                  <Image
+                    src="/Tekla-removebg-preview.png"
+                    alt="Tekla Structures"
+                    width={144}
+                    height={80}
+                    className="object-contain max-h-full max-w-full"
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="relative h-20 w-36 flex items-center justify-center">
+                  <Image
+                    src="/projecad-removebg-preview.png"
+                    alt="Projecad"
+                    width={144}
+                    height={80}
+                    className="object-contain max-h-full max-w-full"
+                  />
+                </div>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, y: -5 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300"
+              >
+                <div className="relative h-20 w-36 flex items-center justify-center">
+                  <Image
+                    src="/SDS2-removebg-preview.png"
+                    alt="SDS2"
+                    width={144}
+                    height={80}
+                    className="object-contain max-h-full max-w-full"
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -545,23 +599,23 @@ export default function AboutPage() {
                     Next Project?
                   </span>
                 </h2>
-                
+
                 <p className="text-xl text-gray-200 mb-10 leading-relaxed">
-                  Let's discuss how our expertise can bring your vision to life. 
+                  Let's discuss how our expertise can bring your vision to life.
                   Get in touch with our team today for a consultation.
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-white text-[#1F3B64] hover:bg-gray-100 font-semibold rounded-full px-8 py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                     onClick={() => window.location.href = '/'}
                   >
                     Contact Us
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     variant="outline"
                     className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#1F3B64] font-semibold rounded-full px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
                     onClick={() => window.location.href = '/projects'}
@@ -572,9 +626,9 @@ export default function AboutPage() {
               </div>
 
               <div className="relative h-64 lg:h-auto">
-                <img 
-                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" 
-                  alt="Construction project" 
+                <img
+                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
+                  alt="Construction project"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#1F3B64]/50 to-transparent"></div>

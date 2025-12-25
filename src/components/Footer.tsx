@@ -10,24 +10,9 @@ export default function Footer() {
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-6">Gen Engineering INC</h3>
-            <p className="text-gray-300 text-base leading-relaxed mb-8">
-              Professional structural engineering and steel detailing services. Founded in 2013, our management team brings 10+ years of experience.
+            <p className="text-gray-300 text-base leading-relaxed">
+              Professional structural engineering and steel detailing services since 2013.
             </p>
-            
-            <div>
-              <h4 className="text-sm font-semibold mb-3 text-white">Software We Use</h4>
-              <div className="flex flex-wrap gap-4">
-                <div className="bg-white p-1 rounded w-20 h-10 relative">
-                    <Image src="/tekla-logo.svg" alt="Tekla" fill className="object-contain p-1" />
-                </div>
-                 <div className="bg-white p-1 rounded w-20 h-10 relative">
-                    <Image src="/projecad-logo.svg" alt="Projecad" fill className="object-contain p-1" />
-                </div>
-                 <div className="bg-white p-1 rounded w-20 h-10 relative">
-                    <Image src="/sds2-logo.svg" alt="SDS 2" fill className="object-contain p-1" />
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -113,9 +98,9 @@ export default function Footer() {
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
                 <div className="flex flex-col gap-2">
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=16192+Coastal+Highway,+Lewes,+DE+19958" 
-                    target="_blank" 
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=16192+Coastal+Highway,+Lewes,+DE+19958"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-300 hover:text-white transition-colors text-base"
                   >

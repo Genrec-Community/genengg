@@ -18,7 +18,7 @@ export default function Navigation() {
             <div className="flex items-center gap-4">
               {/* Company Logo */}
               <Link href="/" className="flex items-center">
-                <Image 
+                <Image
                   src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/logo-removebg-preview-1-1759896961543.png"
                   alt="GenEngg Logo"
                   width={140}
@@ -27,24 +27,24 @@ export default function Navigation() {
                   priority
                 />
               </Link>
-              
+
               {/* License Badges */}
               <div className="hidden md:flex flex-col gap-1 items-center">
                 {/* License Logos Row */}
                 <div className="flex items-center gap-3">
                   {/* AISC License */}
                   <div className="relative h-12 w-18">
-                    <Image 
+                    <Image
                       src="/aisc-license.png"
                       alt="AISC Certified"
                       fill
                       className="object-contain"
                     />
                   </div>
-                  
+
                   {/* NISD License */}
                   <div className="relative h-12 w-18">
-                    <Image 
+                    <Image
                       src="/nisd-licence.png"
                       alt="NISD Member"
                       fill
@@ -54,32 +54,39 @@ export default function Navigation() {
                 </div>
               </div>
             </div>
-            
-            {/* Right Side: Toll Free, Send Query Button, Menu Icon */}
-            <div className="flex items-center gap-4">
-              {/* Phone Number and LinkedIn */}
-              <div className="hidden md:flex flex-col items-end gap-1 text-[#1F3B64]">
-                <div className="flex items-center gap-2">
+
+            {/* Right Side: Utility Strip, Send Query Button, Menu Icon */}
+            <div className="flex items-center gap-6">
+              <div className="hidden md:flex items-center gap-6">
+                {/* Phone */}
+                <div className="flex items-center gap-2 text-blue-500">
                   <Phone className="w-5 h-5" />
-                  <span className="font-semibold">+1 302-499-2050</span>
+                  <span className="text-sm font-semibold">+1 302-499-2050</span>
                 </div>
-                <a href="https://www.linkedin.com/company/gen-engineering-inc/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#1F3B64] hover:text-blue-700 transition-colors">
+
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/company/gen-engineering-inc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
+                  style={{ color: '#0A66C2' }}
+                >
                   <Linkedin className="w-5 h-5" />
-                  <span className="text-sm">LinkedIn</span>
                 </a>
+
+                {/* CTA Button */}
+                <Button
+                  asChild
+                  className="bg-[#003366] hover:bg-[#003366]/90 text-white px-5 py-2 rounded-lg transition-all hover:shadow-lg"
+                >
+                  <Link href="/contact">
+                    Send Query
+                  </Link>
+                </Button>
               </div>
-              
-              {/* Send Query Button */}
-              <Button 
-                asChild
-                className="hidden md:flex bg-[#003366] hover:bg-[#003366]/90 text-white px-5 py-2 rounded-lg transition-all hover:shadow-lg"
-              >
-                <Link href="/contact">
-                  Send Query
-                </Link>
-              </Button>
-              
-              {/* Menu Button */}
+
+              {/* Menu Button - aligned with CTA */}
               <button
                 className="text-[#1F3B64] p-1.5 hover:bg-gray-100 rounded-lg transition-colors"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -93,15 +100,15 @@ export default function Navigation() {
       </nav>
 
       {/* Side Panel Navigation */}
-      <div 
+      <div
         className={`fixed inset-0 z-[60] transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMenuOpen(false)}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-        
+
         {/* Side Panel */}
-        <div 
+        <div
           className={`absolute top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl transform transition-transform duration-300 ease-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
           onClick={(e) => e.stopPropagation()}
         >
@@ -121,36 +128,36 @@ export default function Navigation() {
             {/* Navigation Links */}
             <div className="flex-1 overflow-y-auto">
               <div className="p-6 space-y-1">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="block text-[#1F3B64] hover:bg-gray-50 px-4 py-3 rounded-lg font-medium transition-all hover:translate-x-1"
                   onClick={() => setMenuOpen(false)}
                 >
                   Home
                 </Link>
-                <Link 
-                  href="/about" 
+                <Link
+                  href="/about"
                   className="block text-[#1F3B64] hover:bg-gray-50 px-4 py-3 rounded-lg font-medium transition-all hover:translate-x-1"
                   onClick={() => setMenuOpen(false)}
                 >
                   About
                 </Link>
-                <Link 
-                  href="/services" 
+                <Link
+                  href="/services"
                   className="block text-[#1F3B64] hover:bg-gray-50 px-4 py-3 rounded-lg font-medium transition-all hover:translate-x-1"
                   onClick={() => setMenuOpen(false)}
                 >
                   Services
                 </Link>
-                <Link 
-                  href="/projects" 
+                <Link
+                  href="/projects"
                   className="block text-[#1F3B64] hover:bg-gray-50 px-4 py-3 rounded-lg font-medium transition-all hover:translate-x-1"
                   onClick={() => setMenuOpen(false)}
                 >
                   Projects
                 </Link>
-                <Link 
-                  href="/contact" 
+                <Link
+                  href="/contact"
                   className="block text-[#1F3B64] hover:bg-gray-50 px-4 py-3 rounded-lg font-medium transition-all hover:translate-x-1"
                   onClick={() => setMenuOpen(false)}
                 >
@@ -177,8 +184,8 @@ export default function Navigation() {
                   </div>
                 </a>
               </div>
-              
-              <Button 
+
+              <Button
                 asChild
                 className="w-full bg-[#003366] hover:bg-[#003366]/90 text-white py-6 text-lg rounded-lg transition-all hover:shadow-lg"
               >

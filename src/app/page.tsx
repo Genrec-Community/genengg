@@ -22,10 +22,10 @@ export default function Home() {
   })
 
   const backgroundImages = [
-    "https://images.unsplash.com/photo-1533280385001-c32ffcbd52a7",
-    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920",
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920",
-    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920"
+    "https://images.unsplash.com/photo-1533280385001-c32ffcbd52a7?w=1920&q=90",
+    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=90",
+    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=90",
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=90"
   ]
 
   useEffect(() => {
@@ -168,9 +168,11 @@ export default function Home() {
             >
               <div className="absolute inset-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920"
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920&q=90"
                   alt="Modern engineering project"
                   fill
+                  quality={90}
+                  priority
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -345,9 +347,10 @@ export default function Home() {
               <div className="h-full grid grid-rows-2 gap-0">
                 <div className="relative overflow-hidden">
                   <Image
-                    src="https://plus.unsplash.com/premium_photo-1663126874108-409fb65c879c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzYxODIxMzc4fA&ixlib=rb-4.1.0&q=80&w=1080"
+                    src="https://plus.unsplash.com/premium_photo-1663126874108-409fb65c879c?w=1080&q=90"
                     alt="Engineering team collaboration"
                     fill
+                    quality={90}
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
@@ -355,18 +358,20 @@ export default function Home() {
                 <div className="grid grid-cols-2 gap-0">
                   <div className="relative overflow-hidden">
                     <Image
-                      src="https://images.unsplash.com/photo-1758599543129-5269a8f29e68?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb&w=1080"
-                      alt="Structural analysis"
+                      src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=1080&q=90"
+                      alt="Modern engineering workspace"
                       fill
+                      quality={90}
                       className="object-cover"
                       sizes="(max-width: 1024px) 50vw, 25vw"
                     />
                   </div>
                   <div className="relative overflow-hidden">
                     <Image
-                      src="https://plus.unsplash.com/premium_photo-1723759366079-f92eb0aee298?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzYxODIxMjE1fA&ixlib=rb-4.1.0&q=80&w=1080"
-                      alt="Construction site"
+                      src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1080&q=90"
+                      alt="Modern steel construction"
                       fill
+                      quality={90}
                       className="object-cover"
                       sizes="(max-width: 1024px) 50vw, 25vw"
                     />
@@ -425,9 +430,10 @@ export default function Home() {
                 {/* Image Section */}
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80"
+                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=90"
                     alt="Estimation & Take Off"
                     fill
+                    quality={90}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -468,9 +474,10 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1648937740668-160a34e98653"
+                    src="https://images.unsplash.com/photo-1648937740668-160a34e98653?w=800&q=90"
                     alt="Steel Detailing"
                     fill
+                    quality={90}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -508,9 +515,10 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1678517098615-95d02f7c49ff"
+                    src="https://images.unsplash.com/photo-1678517098615-95d02f7c49ff?w=800&q=90"
                     alt="Connection Design"
                     fill
+                    quality={90}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -548,9 +556,10 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1618385455730-2571c38966b7"
+                    src="https://images.unsplash.com/photo-1618385455730-2571c38966b7?w=800&q=90"
                     alt="BIM Modeling"
                     fill
+                    quality={90}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -588,9 +597,10 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-3xl bg-white shadow-xl hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative h-64 overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1582540730843-f4418d96ccbe"
+                    src="https://images.unsplash.com/photo-1582540730843-f4418d96ccbe?w=800&q=90"
                     alt="Facade Detailing"
                     fill
+                    quality={90}
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
@@ -678,27 +688,30 @@ export default function Home() {
               <div className="relative h-[500px] lg:h-auto">
                 <div className="absolute inset-0 grid grid-cols-2 gap-2 p-2">
                   <Image
-                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&q=80"
+                    src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=90"
                     alt="Engineering technology"
                     fill
+                    quality={90}
                     className="object-cover rounded-2xl"
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                   <div className="space-y-2">
                     <div className="relative w-full h-[calc(50%-4px)]">
                       <Image
-                        src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=400&q=80"
+                        src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=600&q=90"
                         alt="Construction tech"
                         fill
+                        quality={90}
                         className="object-cover rounded-2xl"
                         sizes="(max-width: 1024px) 50vw, 25vw"
                       />
                     </div>
                     <div className="relative w-full h-[calc(50%-4px)]">
                       <Image
-                        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=400&q=80"
+                        src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=90"
                         alt="Modern structure"
                         fill
+                        quality={90}
                         className="object-cover rounded-2xl"
                         sizes="(max-width: 1024px) 50vw, 25vw"
                       />
@@ -755,6 +768,46 @@ export default function Home() {
                     <div>
                       <h4 className="font-bold text-gray-900 mb-1">Project Management</h4>
                       <p className="text-sm text-gray-600">Efficient workflow systems</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Software We Use Section */}
+                <div className="mt-8 pt-8 border-t border-gray-200">
+                  <h4 className="text-lg font-bold text-gray-900 mb-6">Software Platforms We Use</h4>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:border-[#1F3B64]">
+                      <div className="relative h-20 w-32 flex items-center justify-center">
+                        <Image
+                          src="/Tekla-removebg-preview.png"
+                          alt="Tekla Structures"
+                          width={128}
+                          height={80}
+                          className="object-contain max-h-full max-w-full"
+                        />
+                      </div>
+                    </div>
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:border-[#1F3B64]">
+                      <div className="relative h-20 w-32 flex items-center justify-center">
+                        <Image
+                          src="/projecad-removebg-preview.png"
+                          alt="Projecad"
+                          width={128}
+                          height={80}
+                          className="object-contain max-h-full max-w-full"
+                        />
+                      </div>
+                    </div>
+                    <div className="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:border-[#1F3B64]">
+                      <div className="relative h-20 w-32 flex items-center justify-center">
+                        <Image
+                          src="/SDS2-removebg-preview.png"
+                          alt="SDS2"
+                          width={128}
+                          height={80}
+                          className="object-contain max-h-full max-w-full"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
