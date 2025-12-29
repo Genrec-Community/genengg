@@ -105,7 +105,7 @@ export default function StructuredData() {
       "Steel Detailing",
       "Building Information Modeling (BIM)",
       "Connection Design",
-      "Rebar Detailing",
+
       "AISC Standards",
       "3D Construction Modeling",
       "Fabrication Planning",
@@ -162,20 +162,7 @@ export default function StructuredData() {
             "areaServed": "International"
           }
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "serviceType": "Rebar Detailing",
-            "name": "Rebar Detailing Services",
-            "description": "Precise rebar detailing services focused on accuracy, cost-efficiency, and constructability including bar bending schedules and shop drawings.",
-            "provider": {
-              "@type": "Organization",
-              "name": "Gen Engineering INC"
-            },
-            "areaServed": "International"
-          }
-        },
+
         {
           "@type": "Offer",
           "itemOffered": {

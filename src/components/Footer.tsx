@@ -66,11 +66,7 @@ export default function Footer() {
                   Estimation & Take-Off
                 </Link>
               </li>
-              <li>
-                <Link href="/services" className="text-gray-300 hover:text-white transition-colors text-base">
-                  Rebar Detailing
-                </Link>
-              </li>
+
               <li>
                 <Link href="/services" className="text-gray-300 hover:text-white transition-colors text-base">
                   BIM Services

@@ -72,24 +72,13 @@ export default function ServicesPage() {
         "4D BIM-based erection scheduling and simulation"
       ]
     },
-    {
-      icon: Target,
-      title: "Rebar Detailing",
-      description: "We provide precise rebar detailing services focused on accuracy, cost-efficiency, and constructability to meet your project specifications.",
-      details: [
-        "Rebar estimation",
-        "Rebar shop drawings",
-        "Bar bending schedules",
-        "Material, assembly, and part lists",
-        "As-built drawings"
-      ]
-    }
+
   ]
 
   return (
     <main className="w-full">
       <Navigation />
-      
+
       {/* Hero Section with Sliding Carousel */}
       <section className="relative min-h-[40vh] sm:min-h-[50vh] flex items-center justify-center bg-gradient-to-r from-[#1F3B64] to-[#1F3B64] text-white pt-20 overflow-hidden">
         {/* Animated Background Images - Sliding Carousel */}
@@ -108,9 +97,9 @@ export default function ServicesPage() {
             />
           </AnimatePresence>
         </div>
-        
+
         <div className="absolute inset-0 bg-black/40"></div>
-        
+
         <div className="relative w-full px-4 sm:px-6 lg:px-12 py-16 sm:py-20 md:py-24 text-center z-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
             Our Services
@@ -126,11 +115,10 @@ export default function ServicesPage() {
         <div className="w-full px-4 sm:px-6 lg:px-12">
           <div className="space-y-8 sm:space-y-12 lg:space-y-16">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={index}
-                className={`grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center ${
-                  index % 2 === 1 ? 'md:flex-row-reverse' : ''
-                }`}
+                className={`grid md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''
+                  }`}
               >
                 <div className={index % 2 === 1 ? 'md:order-2' : ''}>
                   <Card className="shadow-xl border-none bg-gradient-to-br from-white to-gray-50 hover:shadow-2xl transition-shadow">
@@ -157,14 +145,13 @@ export default function ServicesPage() {
                   </Card>
                 </div>
                 <div className={`relative h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden shadow-xl ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <img 
-                    src={`https://images.unsplash.com/photo-${
-                      index === 0 ? '1454165804606-c3d57bc86b40' :
-                      index === 1 ? '1648937740668-160a34e98653' :
-                      index === 2 ? '1678517098615-95d02f7c49ff' :
-                      index === 3 ? '1618385455730-2571c38966b7' :
-                      '1582540730843-f4418d96ccbe'
-                    }?w=800`}
+                  <img
+                    src={`https://images.unsplash.com/photo-${index === 0 ? '1454165804606-c3d57bc86b40' :
+                        index === 1 ? '1648937740668-160a34e98653' :
+                          index === 2 ? '1678517098615-95d02f7c49ff' :
+                            index === 3 ? '1618385455730-2571c38966b7' :
+                              '1582540730843-f4418d96ccbe'
+                      }?w=800`}
                     alt={service.title}
                     className="w-full h-full object-cover"
                   />
